@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*===Retirar predefinições do navegador===*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*===Cor de fundo geral do site===*/
+body{
+    background-color: #f5f5f5;
+}
+
+/*===logo do site geral===*/
+.container_logo{
+    display: flex;/*organiza elementos dentro de um contêiner de forma flexível e inteligente.*/
+    flex-direction: column;/*Organiza os elementos filhos em uma coluna (um abaixo do outro).*/
+    background: linear-gradient(to bottom,#ffb300,#ff9800);/*Cria um fundo com gradiente linear do topo para baixo.*/
+    justify-content: center;/*Centraliza os elementos filhos verticalmente no eixo principal.*/
+    align-items: center;/*Centraliza os elementos filhos horizontalmente no eixo transversal.*/
+}
+
+/*===imagem da logo===*/
+.container_logo img {
+    width: min(400px, 90%);/* Imagem responsiva: ocupa até 90% do container, mas nunca ultrapassa 400px.*/
+}
+
+/*===Paragrafo da logo===*/
+.container_logo p{
+    margin-top: -20px;/*Define uma margem superior negativa de 20 pixels, movendo o parágrafo 20px para cima em relação à sua posição normal.*/
+    font-size: 40px;/*Define o tamanho da fonte como 40 pixels.*/
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;/*Define uma lista de fontes. O navegador tenta usar Cambria; se não existir, tenta Cochin e assim por diante.*/
+    font-weight: bold;/*Deixa o texto em negrito.*/
+    color: #2b1600;/*Define a cor do texto.*/
+    letter-spacing: 1px;/*Adiciona 1 pixel de espaço entre cada letra do texto.*/
+}
+
+/*===título da página principal abaixo da logo===*/
+.boas_vindas {
+    text-align: center;/*Centraliza horizontalmente o texto e outros elementos inline dentro do container.*/
+    padding: 50px 20px;/*Adiciona espaço interno ao elemento: 50px em cima e embaixo, e 20px à esquerda e à direita.*/
+    font-family: sans-serif;/*Define uma fonte sem serifa para o texto. O navegador utilizará a fonte sans-serif padrão disponível no sistema.*/
+    color: #333;/*Define a cor do texto.*/
+}
+
+/*===Área principal contorno que envolve os cards ===*/
+#area{
+    border: 3px solid #000000B6;/*Cria uma borda de 3px, estilo sólido (solid).*/
+    border-radius: 8px;/*Arredonda os cantos da borda em 8px.*/
+    width: 98%;/*Define a largura do elemento como 98% da largura do elemento pai.*/
+    max-width: 1400px;/*Limita a largura máxima a 1400px, mesmo em telas muito grandes.*/
+    margin: 40px auto;/*Define margem de 40px em cima e embaixo. O valor auto nas laterais centraliza o elemento horizontalmente.*/
+    padding: 30px;/*Adiciona 30px de espaço interno entre a borda e o conteúdo.*/
+}
+
+/*===Título das seções (Combos e Burgers)===*/
+.titulo_secao {
+    text-align: center;/*Centraliza horizontalmente o texto dentro do elemento.*/
+    margin: 30px 0;/*Adiciona uma margem externa de 30px em cima e embaixo, e 0px nas laterais.*/
+    font-family: Cambria, Georgia, serif;/*O navegador tenta usar Cambria; se não estiver disponível, usa Georgia; caso contrário, utiliza uma fonte genérica da família serif.*/
+    color: #2b1600;/*Define a cor do texto.*/
+    font-size: 32px;/*Define o tamanho da fonte como 32 pixels.*/
+}
+
+/*===Container que organiza todos os cards em grade responsiva===*/
+.cards{
+    display: grid;/*Ativa o sistema de layout CSS Grid, permitindo organizar os elementos em linhas e colunas.*/ 
+    grid-template-columns:
+    repeat(auto-fit, minmax(340px, 1fr));/*Cria automaticamente quantas colunas couberem no espaço disponível. Cada coluna terá largura mínima de 340px e poderá crescer para ocupar uma fração do espaço livre (1fr).*/
+    gap: 25px;/*Cria um espaçamento de 25px entre os itens da grade, tanto horizontal quanto verticalmente.*/
+}
+
+/*===Card individual de produto ou promoção===*/
+.container_card{
+    display: flex;/*Ativa o Flexbox, permitindo organizar os elementos filhos de forma flexível.*/
+    justify-content: space-between;/*Distribui os elementos horizontalmente, colocando o primeiro no início, o último no final e o restante com espaço igual entre eles.*/
+    align-items: center;/*Alinha os elementos verticalmente ao centro dentro do container.*/
+    padding: 16px;/*Adiciona um espaçamento interno de 16px entre a borda e o conteúdo.*/
+    gap: 20px;/*Cria um espaçamento de 20px entre os elementos filhos do container.*/
+    width: 100%;/*Faz o container ocupar 100% da largura disponível do elemento pai.*/
+    min-height: 160px;/*CDefine uma altura mínima de 160px, impedindo que o container fique menor que isso.*/
+    border-radius: 8px;/*Arredonda os cantos da borda em 8px.*/
+    border: 1px solid;/*Cria uma borda sólida com espessura de 1px.*/
+    border-color: #0000003b;/*Define a cor da borda.*/
+    transition: transform 0.3s, box-shadow 0.3s;/*Cria uma animação suave de 0,3 segundos para alterações nas propriedades transform.*/
+}
+
+/*===Imagem do produto dentro do card===*/
+.container_card img{
+    width: 130px;/*Define a largura da imagem como 130 pixels.*/
+    height: 130px;/*Define a altura da imagem como 130 pixels.*/
+    object-fit: cover;/*Faz a imagem preencher completamente a área de 130px × 130px, mantendo a proporção.*/
+    border-radius: 8px;/*Arredonda os cantos da imagem em 8 pixels.*/
+    flex-shrink: 0;/*Impede que a imagem diminua de tamanho quando estiver dentro de um container Flexbox com pouco espaço disponível. Ela continuará com 130px × 130px.*/
+}
+
+/*===Efeito ao passar o mouse sobre o card===*/
+.container_card:hover{
+    transform: scale(1.01);/*Aumenta o tamanho do card em 1%, criando um efeito sutil de destaque ao passar o mouse.*/
+    box-shadow: 0 0 3px #dac011;/*Adiciona uma sombra ao redor do card: 0px de deslocamento horizontal, 0px de deslocamento vertical, 3px de desfoque e cor amarela.*/
+}
+
+/*===Nome do produto===*/
+.nome{
+    font-size: 20px;/*Define o tamanho da fonte como 20 pixels.*/
+    color: #000000b6;/*Define a cor do texto.*/
+    font-family: "Roboto", sans-serif;/*Define a fonte do texto como Roboto. Se ela não estiver disponível, o navegador utilizará uma fonte genérica da família sans-serif.*/
+    
+}
+
+/*===Descrição resumida do produto===*/
+.descricao{
+    font-size: 14px;/*Define o tamanho da fonte como 14 pixels.*/
+    color: #000000cc;/*Define a cor do texto.*/
+    margin: 6px 0px 0px 0px;/*Define as margens externas na ordem: superior, direita, inferior, esquerda.*/
+    font-family: "Roboto", sans-serif;/*Define a fonte do texto como Roboto. Se ela não estiver disponível, o navegador utilizará uma fonte genérica da família sans-serif.*/
+}
+
+/*===Preço do produto===*/
+.preco{
+    font-size: 18px;/*Define o tamanho da fonte como 18 pixels.*/
+    color: #000000b6;/*Define a cor do texto.*/
+    margin: 8px 0px 0px 0px;/*Define as margens externas na ordem: superior, direita, inferior, esquerda.*/
+    font-family: "Roboto", sans-serif;/*Define a fonte do texto como Roboto. Se ela não estiver disponível, o navegador utilizará uma fonte genérica da família sans-serif.*/
+}
+
+/*===Botão "Ver Detalhes e Pedir" dos cards===*/
+.btn_ver_mais {
+    display: inline-block;/*az o elemento se comportar como um bloco em linha, permitindo definir largura, altura, margem e padding sem ocupar toda a linha.*/
+    margin-top: 10px;/*Adiciona uma margem externa de 10px acima do botão.*/
+    padding: 8px 16px;/*Adiciona espaço interno: 8px em cima e embaixo e 16px à esquerda e à direita.*/
+    background-color: #ff9800;/*Define a cor de fundo.*/
+    color: white;/*Define a cor do texto.*/
+    text-decoration: none;/*Remove decorações do texto, como o sublinhado padrão dos links.*/
+    border-radius: 5px;/*Arredonda os cantos do botão em 5px.*/
+    font-weight: bold;/*Deixa o texto em negrito.*/
+    font-size: 14px;/*Define o tamanho da fonte como 14 pixels.*/
+}
+
+/*===Efeito hover do botão "Ver Detalhes e Pedir"===*/
+.btn_ver_mais:hover {
+    background-color: #2b1600;/*Define a cor de fundo.*/
+}
+
+/*===Rodapé do site===*/
+.rodape{
+    background-color: #1a1a1a;/*Define a cor de fundo.*/
+    color: white;/*Define a cor do texto.*/
+    margin-top: 80px;/*Adiciona uma margem externa de 80px acima do rodapé, afastando-o do conteúdo anterior.*/
+    padding: 40px 20px;/*Adiciona espaço interno: 40px em cima e embaixo e 20px à esquerda e à direita.*/
+    text-align: center;/*Centraliza horizontalmente o texto e outros elementos inline dentro do rodapé.*/
+}
+
+/*===Título do rodapé===*/
+.rodape h2{
+    font-size: 36px;/*Define o tamanho da fonte do título como 36 pixels.*/
+    margin-bottom: 10px;/*Adiciona uma margem externa de 10px abaixo do título.*/
+}
+
+/*===Paragrafo do rodapé===*/
+.rodape p{
+    color: #ffb300;/*Define a cor do texto.*/
+    margin-bottom: 20px;/*Adiciona uma margem externa de 20px abaixo do parágrafo*/
+    font-size: 18px;/*Define o tamanho da fonte do texto como 18 pixels.*/
+}
+
+/*===Container dos links das redes sociais===*/
+.redes{
+    display: flex;/*Ativa o Flexbox, permitindo organizar os elementos filhos em uma linha flexível.*/
+    justify-content: center;/*Centraliza os elementos horizontalmente dentro do container.*/
+    gap: 20px;/*Cria um espaçamento de 20px entre os elementos filhos.*/
+    margin-bottom: 20px;/*Adiciona uma margem externa de 20px abaixo do container.*/
+}
+
+/*===Links das redes sociais===*/
+.redes a{
+    color: white;/*Define a cor do texto.*/
+    text-decoration: none;/*Remove a decoração padrão do link, como o sublinhado.*/
+    transition: 0.3s;/*Cria uma transição suave de 0,3 segundos quando alguma propriedade do link for alterada.*/
+}
+
+/*===Efeito hover dos links das redes sociais===*/
+.redes a:hover{
+    color: #ffb300;/*Define a cor do texto.*/
+}
+
+
+/*====== FILES PARA FAZER PEDIDO ========*/
+
+
+/*===Menu de navegação das páginas===*/
+.menu_navegacao {
+    margin-top: 15px;/*Adiciona uma margem externa de 15px acima do elemento.*/
+    margin-bottom: 25px;/*Adiciona uma margem externa de 25px abaixo do elemento.*/
+    display: flex;/*Ativa o Flexbox, permitindo organizar os elementos filhos em uma linha flexível.*/
+    gap: 15px; /* Cria um espaçamento de 15px entre os elementos filhos do container. */
+}
+
+/*===Botão INICIO para voltar para index.html===*/
+.menu_navegacao a {
+    text-decoration: none; /* Remove a decoração padrão do link, como o sublinhado. */
+    color: #2b1600; /* Define a cor do texto */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;/*Define a fonte do texto. O navegador tenta usar Segoe UI, depois Tahoma... e, por fim, uma fonte genérica sans-serif.*/
+    font-weight: bold;/*Deixa o texto em negrito.*/
+    font-size: 18px;/*Define o tamanho da fonte como 18 pixels.*/
+    padding: 10px 25px;/*Adiciona espaço interno: 10px em cima e embaixo e 25px à esquerda e à direita.*/
+    border-radius: 30px; /*Arredonda os cantos do elemento em 30px.*/
+    background-color: rgba(255, 255, 255, 0.4); /* Fundo branco semi-transparente.*/
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);/*Adiciona uma sombra suave: 0px horizontal, 4px vertical, 6px de desfoque e cor preta com 5% de opacidade.*/
+    transition: all 0.3s ease; /*Faz qualquer mudança de estilo (cor, tamanho, sombra, etc.) ocorrer suavemente em 0,3 segundos usando uma transição suave (ease).*/
+}
+
+/* Efeito Hover (passar o mouse por cima) do botão INICIO */
+.menu_navegacao a:hover {
+    background-color: #2b1600;/*Altera a cor de fundo.*/
+    color: #ffb300;/*Altera a cor do texto.*/
+    transform: translateY(-2px); /*Move o link 2px para cima, criando um efeito de elevação ao passar o mouse.*/   
+}
+
+/*===Container principal da página de detalhes do produto===*/
+.pagina_detalhes {
+    max-width: 1100px;/*Define que a largura máxima do elemento será de 1100px. Mesmo em telas maiores, ele não ultrapassará esse tamanho.*/
+    margin: 40px auto;/*Adiciona uma margem externa de 40px em cima e embaixo. O valor auto nas laterais centraliza o elemento horizontalmente na página.*/
+    padding: 20px;/*Adiciona um espaçamento interno de 20px entre a borda do elemento e seu conteúdo.*/
+}
+
+/*===Estrutura que organiza imagem e informações do produto===*/
+.wrapper_produto {
+    display: flex;/*Ativa o Flexbox, permitindo organizar os elementos filhos de forma flexível.*/
+    flex-wrap: wrap;/*Permite que os elementos que não couberem na mesma linha sejam movidos para a linha de baixo.*/
+    gap: 50px;/*Cria um espaçamento de 50px entre os elementos filhos, tanto horizontal quanto verticalmente.*/
+    background-color: #ffffff;/*Define a cor de fundo.*/
+    padding: 30px;/*Adiciona um espaçamento interno de 30px entre a borda e o conteúdo.*/
+    border-radius: 12px;/*Arredonda os cantos do container em 12px.*/
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);/*Adiciona uma sombra suave: 0px horizontal, 4px vertical, 15px de desfoque e cor preta com 10% de opacidade.*/
+}
+
+/*===Bloco que contém a imagem principal do produto===*/
+.bloco_imagem {
+    flex: 1;/*Faz o elemento crescer e ocupar o espaço disponível dentro de um container Flexbox, dividindo o espaço de forma proporcional com outros elementos que também tenham flex.*/
+    min-width: 300px;/*Define que a largura mínima do elemento será de 300px. Ele não ficará menor que esse valor, mesmo quando houver pouco espaço disponível.*/
+}
+
+/*===Imagem principal do produto===*/
+.bloco_imagem img {
+    width: 100%;/*Faz a imagem ocupar 100% da largura do elemento pai.*/
+    max-width: 500px;/*Define que a imagem pode crescer até 500px de largura, mas não ultrapassará esse tamanho.*/
+    border-radius: 10px;/*Arredonda os cantos da imagem em 10px.*/
+    object-fit: cover;/*Faz a imagem preencher completamente sua área mantendo a proporção original.*/
+}
+
+/*===Bloco de informações do produto===*/
+.bloco_info {
+    flex: 1;/*Faz o elemento crescer e ocupar o espaço disponível dentro de um container Flexbox.*/
+    min-width: 300px;/*Define que a largura mínima do elemento será de 300px.*/
+    display: flex;/*Transforma o elemento em um container Flexbox.*/
+    flex-direction: column;/*Organiza os elementos filhos em coluna (um abaixo do outro).*/
+    justify-content: center;/*Centraliza os elementos filhos ao longo do eixo principal.*/
+}
+
+/*===Título do produto===*/
+.bloco_info h1 {
+    font-size:42px;/*Define o tamanho da fonte do título como 42 pixels.*/
+    color: #2b1600;/*Define a cor do texto.*/
+    margin-bottom: 15px;/*Adiciona uma margem externa de 15px abaixo do título.*/
+    font-family: Georgia, serif;/*Define a fonte do texto como Georgia. Se ela não estiver disponível, o navegador utilizará uma fonte genérica da família serif.*/
+}
+
+/*===Descrição completa do produto===*/
+.descricao_completa {
+    font-size: 17px;/*Define o tamanho da fonte como 17 pixels.*/
+    color: #555;/*Define a cor do texto.*/
+    line-height: 1.6;/*Define a altura das linhas como 1,6 vezes o tamanho da fonte, aumentando o espaçamento entre as linhas e melhorando a leitura.*/
+    margin-bottom: 20px;/*Adiciona uma margem externa de 20px abaixo do elemento.*/
+    font-family: Arial, sans-serif;/*Define a fonte do texto como Arial. Se não estiver disponível, o navegador utilizará uma fonte genérica da família sans-serif.*/
+}
+
+/*===Preço em destaque do produto===*/
+.preco_destaque {
+    font-size: 28px;/*Define o tamanho da fonte como 28 pixels, deixando o preço bem visível.*/
+    font-weight: bold;/*Deixa o texto em negrito.*/
+    color: #d32f2f;/*Define a cor do texto.*/
+    margin-bottom: 25px;/*Adiciona uma margem externa de 25px abaixo do elemento.*/
+}
+
+/*===Área de seleção dos adicionais===*/
+.secao_adicionais {
+    margin-bottom: 30px;/*Adiciona uma margem externa de 30px abaixo do elemento.*/
+    background: #e7e4e4d7;/*Define a cor de fundo.*/
+    padding: 15px;/*Adiciona um espaçamento interno de 15px entre a borda e o conteúdo da seção.*/
+    border-radius: 8px;/*Arredonda os cantos da seção em 8px.*/
+}
+
+/*===Título da seção de adicionais===*/
+.secao_adicionais h3 {
+    margin-top: 0;/*Remove a margem superior padrão do título, evitando espaço extra acima dele.*/
+    color: #2b1600;/*Define a cor do texto.*/
+    margin-bottom: 12px;/*Adiciona uma margem externa de 12px abaixo do título.*/
+    font-family: Verdana, sans-serif;/*Define a fonte do texto como Verdana. Se não estiver disponível, o navegador utilizará uma fonte genérica da família sans-serif.*/
+}
+
+/*===Opções de adicionais e bebidas===*/
+.secao_adicionais label {
+    display: block;/*Faz o <label> ocupar toda a largura disponível e ficar em uma linha própria. Cada label aparecerá abaixo da outra.*/
+    margin-bottom: 10px;/*Adiciona uma margem externa de 10px abaixo de cada label, criando espaço entre eles.*/
+    font-size: 14px;/*Define a cor do texto.*/
+    color: #333;/*Define a cor do texto.*/
+    cursor: pointer;/*Altera o cursor para uma mãozinha quando o mouse passa sobre o label, indicando que ele é clicável.*/
+}
+
+/*===Botão para finalizar pedido via WhatsApp===*/
+.btn_enviar_pedido {
+    display: block;/*Faz o elemento ocupar toda a largura disponível da linha, comportando-se como um bloco.*/
+    text-align: center;/*Centraliza o texto dentro do botão.*/
+    background-color: #25d366; /*Define a cor de fundo.*/
+    color: white;/*Define a cor do texto.*/
+    padding: 15px;/*Adiciona um espaçamento interno de 15px em todos os lados do botão.*/
+    text-decoration: none;/*Remove a decoração padrão do texto, como o sublinhado dos links.*/
+    font-size: 18px;/*Define o tamanho da fonte como 18 pixels.*/
+    font-weight: bold;/*Deixa o texto em negrito.*/
+    border-radius: 6px;/*Arredonda os cantos do botão em 6px.*/
+    transition: background 0.2s;/*Faz a mudança da cor de fundo ocorrer suavemente em 0,2 segundos quando ela for alterada (por exemplo, em um :hover).*/
+}
+
+/*===Efeito hover do botão finalizar pedido===*/
+.btn_enviar_pedido:hover {
+    background-color: #1ebd59;/*Altera a cor de fundo do botão para um tom de verde mais escuro.*/
+}
+
+/*===Responsividade para tablets e celulares===*/
+
+@media (max-width: 768px){
+    /*===imagem da logo===*/
+    .container_logo img{
+        width: 100%;/*Faz a imagem ocupar 100% da largura disponível do elemento pai.*/
+        max-width: 280px;/*Define que a imagem pode crescer até 280px de largura, mas não ultrapassará esse tamanho, mesmo que haja mais espaço disponível.*/
+    }
+
+    /*===Paragrafo da logo===*/
+    .container_logo p{
+        font-size: 24px;/*Define o tamanho da fonte como 24 pixels.*/
+        margin-top: -10px;/*Aplica uma margem superior negativa de 10px, movendo o texto 10px para cima em relação à sua posição normal.*/
+        text-align: center;/*Centraliza horizontalmente o texto dentro do parágrafo.*/
+        padding: 0 10px;/*Adiciona 0px de espaçamento interno em cima e embaixo e 10px à esquerda e à direita.*/
+    }
+
+    /*===Menu de navegação das páginas===*/
+    .menu_navegacao{
+        flex-wrap: wrap;/*Permite que os itens do menu passem para a linha de baixo quando não houver espaço suficiente na mesma linha.*/
+        justify-content: center;/*Centraliza os itens horizontalmente dentro do container Flexbox.*/
+    }
+
+    /*===Área principal contorno que envolve os cards ===*/
+    #area{
+        padding: 15px;/*Adiciona um espaçamento interno de 15px entre a borda do elemento e seu conteúdo.*/
+        width: 98%;/*Define a largura do elemento como 98% da largura do elemento pai.*/
+    }
+}
